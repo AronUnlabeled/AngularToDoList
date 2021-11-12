@@ -1,0 +1,11 @@
+<div *ngFor="let item of tasks; let i = index" >
+    <span *ngIf="item.completed==true"> <s>{{i}} &nbsp; &nbsp;  {{item.task}} </s> </span>
+    <span *ngIf="item.completed==false"> {{i}} &nbsp; &nbsp;  {{item.task}}  </span>
+    <button  *ngIf="item.completed==false" (click)="CrossOff(i)" >Complete</button>       
+</div>
+
+<form #taskForm="ngForm" (ngSubmit)="AddTask(taskForm)">
+    <label for="taskName">enter task</label>
+    <input name="taskName"  id="taskName" ngModel />
+    <button>Add task</button>
+  </form>
